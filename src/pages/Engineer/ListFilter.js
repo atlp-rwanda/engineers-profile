@@ -37,7 +37,7 @@ const ListFilter = () => {
           <h1>Andela Technical Leadership Program (Rwanda)</h1>
           <h1>Engineer Profile</h1>
         </div>
-        <div className='flex flex-col md:flex-row w-full gap-x-10 gap-y-4 justify-center'>
+        <div className='flex flex-col md:flex-row w-full gap-x-10 gap-y-4 justify-center items-center'>
           <div className='relative w-full h-full max-w-xx'>
             <input
               placeholder='Search'
