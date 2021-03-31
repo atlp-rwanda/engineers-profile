@@ -6,8 +6,10 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={EngineerList} />
-        <Route path='*' component={NotFound} />
+        <div className='pt-20'>
+          <Route exact path='/' component={EngineerList} />
+          <Route path='*' component={NotFound} />
+        </div>
       </Switch>
     </BrowserRouter>
   );

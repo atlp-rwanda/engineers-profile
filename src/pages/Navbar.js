@@ -3,7 +3,7 @@ import AndelaLogo from '../assets/images/logo_andela-blue.svg';
 
 const Navbar = () => {
   return (
-    <div className='bg-white h-20 px-4 md:px-8 flex items-center justify-between '>
+    <div className=' fixed bg-white h-20 w-full px-4 md:px-8 flex items-center justify-between z-50  '>
       <div className='h-full flex items-center '>
         <img className='h-1/3 md:h-3/5' src={AndelaLogo} alt='' />
       </div>

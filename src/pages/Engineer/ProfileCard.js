@@ -1,6 +1,6 @@
 import React from 'react';
 import { name, company, internet, phone } from 'faker';
-import randomAcmeLogo from 'random-acme-logos';
+import randomColor from 'randomcolor';
 
 const ProfileCard = ({ id }) => {
   const username = name.findName();
@@ -8,7 +8,7 @@ const ProfileCard = ({ id }) => {
   const profilePhoto = internet.avatar();
   const userEmail = internet.email();
   const userPhone = phone.phoneNumber();
-  const logo = randomAcmeLogo();
+  const color = randomColor();
   return (
     <div className='relative  max-w-xx'>
       <div className='relative min-h-xx w-full bg-white shadow-md pb-2'>
@@ -57,12 +57,18 @@ const ProfileCard = ({ id }) => {
                 <span className='font-normal text-gray-500'>Duration:</span> 3
                 Month
               </p>
-              <div className='h-10 w-10 bg-purple-100 -top-8'>
-                <img
+              <div
+                className='h-10 w-10 flex justify-center items-center'
+                style={{ background: color }}
+              >
+                <h2 className='text-white font-semibold'>
+                  {companyName.charAt(0)}
+                </h2>
+                {/* <img
                   className=' w-full h-full  cover bg-center'
                   src={logo}
                   alt='profile'
-                />
+                /> */}
               </div>
             </div>
           </figcaption>
