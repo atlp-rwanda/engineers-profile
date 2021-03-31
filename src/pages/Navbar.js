@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className=' fixed bg-white h-20 w-full px-4 md:px-8 flex items-center justify-between z-50  '>
       <div className='h-full flex items-center '>
-        <img className='h-1/3 md:h-3/5' src={AndelaLogo} alt='' />
+        <img className='h-1/3 md:h-3/6' src={AndelaLogo} alt='' />
       </div>
 
       <ul className='flex gap-x-3 md:gap-x-6 text-center items-center font-normal tracking-wide text-dark text-sm md:text-base'>
