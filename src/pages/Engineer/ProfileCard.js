@@ -1,13 +1,20 @@
 import React from 'react';
-import { name, company, internet, phone } from 'faker';
 import randomColor from 'randomcolor';
 
-const ProfileCard = ({ id }) => {
-  const username = name.findName();
-  const companyName = company.companyName();
-  const profilePhoto = internet.avatar();
-  const userEmail = internet.email();
-  const userPhone = phone.phoneNumber();
+const { REACT_APP_BASE_URL: baseUrl } = process.env;
+
+const ProfileCard = ({ data }) => {
+  const fullName = `${data.first_name}  ${data.last_name}`;
+  const profilePhoto = data.profile_photo
+    ? `${baseUrl}${data.profile_photo.url}`.trim()
+    : '';
+  const bio = data.bio ? data.bio : '';
+  const email = data.email ? data.email : '';
+  const mobile = data.mobile_no ? `+${data.mobile_no}` : '';
+  const companyName = data.company ? data.company.name : '';
+  const companyLogo = data.company
+    ? `${baseUrl}${data.company.logo.url}`.trim()
+    : '';
   const color = randomColor();
   return (
     <div className='relative  max-w-xx'>
@@ -20,36 +27,37 @@ const ProfileCard = ({ id }) => {
               alt='profile'
             />
           </div>
-          <h1 className='mt-14 font-medium'>{username}</h1>
+          <h1 className='mt-14 font-medium'>{fullName}</h1>
         </div>
         <div className='relative text-dark text-sm mt-4 mx-4'>
-          <figcaption class='mb-4'>
-            <div class='text-gray-500 uppercase text-xs font-semibold'>
+          <figcaption className='mb-4'>
+            <div className='text-gray-500 uppercase text-xs font-semibold'>
               Skills
             </div>
-            <div class='mt-1 flex flex-wrap gap-x-2 gap-y-2 text-tiny'>
-              <span className='bg-gray-200 px-2 py-1'>HTML</span>
-              <span className='bg-gray-200 px-2 py-1'>CSS</span>
-              <span className='bg-gray-200 px-2 py-1'>Javascript</span>
-              <span className='bg-gray-200 px-2 py-1'>Python</span>
-              <span className='bg-gray-200 px-2 py-1'>Docker</span>
+            <div className='mt-1 flex flex-wrap gap-x-2 gap-y-2 text-tiny'>
+              {data.skills.length
+                ? data.skills.map((skill) => (
+                    <span className='bg-gray-200 px-2 py-1' key={skill.id}>
+                      {skill.name.toUpperCase()}
+                    </span>
+                  ))
+                : null}
             </div>
           </figcaption>
 
-          <figcaption class='mb-4'>
-            <div class='text-gray-500 uppercase text-xs font-semibold'>Bio</div>
-            <div class='mt-1 flex flex-wrap gap-x-2 gap-y-2'>
-              <p className='text-xs'>
-                is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever sis
-              </p>
+          <figcaption className='mb-4'>
+            <div className='text-gray-500 uppercase text-xs font-semibold'>
+              Bio
+            </div>
+            <div className='mt-1 flex flex-wrap gap-x-2 gap-y-2'>
+              <p className='text-xs'>{bio}</p>
             </div>
           </figcaption>
-          <figcaption class='mb-4'>
-            <div class='text-gray-500 uppercase text-xs font-semibold'>
+          <figcaption className='mb-4'>
+            <div className='text-gray-500 uppercase text-xs font-semibold'>
               Engineering Experience
             </div>
-            <div class='mt-1 flex justify-between items-center'>
+            <div className='mt-1 flex justify-between items-center'>
               <p className='text-xs'>
                 <span className='font-normal text-gray-500'>Company:</span>{' '}
                 {companyName}
@@ -61,28 +69,25 @@ const ProfileCard = ({ id }) => {
                 className='h-10 w-10 flex justify-center items-center'
                 style={{ background: color }}
               >
-                <h2 className='text-white font-semibold'>
-                  {companyName.charAt(0)}
-                </h2>
-                {/* <img
+                <img
                   className=' w-full h-full  cover bg-center'
-                  src={logo}
+                  src={companyLogo}
                   alt='profile'
-                /> */}
+                />
               </div>
             </div>
           </figcaption>
-          <figcaption class='mb-4'>
-            <div class='text-gray-500 uppercase text-xs font-semibold'>
+          <figcaption className='mb-4'>
+            <div className='text-gray-500 uppercase text-xs font-semibold'>
               Contact
             </div>
-            <div class='mt-1 flex'>
+            <div className='mt-1 flex'>
               <p className='text-xs'>
                 <span className='font-normal text-gray-500'>Email: </span>
-                {userEmail}
+                {email}
                 <br />
                 <span className='font-normal text-gray-500'>Mobile:</span>
-                {userPhone}
+                {mobile}
               </p>
             </div>
           </figcaption>

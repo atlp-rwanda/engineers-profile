@@ -19,7 +19,7 @@ const Dropdown = ({ className, selected, options, onSelect, ...rest }) => {
       <div>
         <button
           type='button'
-          class='flex justify-between w-full  border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'
+          className='flex justify-between w-full  border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'
           id='options-menu'
           aria-expanded='false'
           aria-haspopup='false'
@@ -33,11 +33,7 @@ const Dropdown = ({ className, selected, options, onSelect, ...rest }) => {
             fill='currentColor'
             aria-hidden='true'
           >
-            <path
-              fill-rule='evenodd'
-              d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'
-              clip-rule='evenodd'
-            />
+            <path d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' />
           </svg>
         </button>
       </div>
@@ -51,8 +47,9 @@ const Dropdown = ({ className, selected, options, onSelect, ...rest }) => {
         aria-labelledby='options-menu'
       >
         <div className='py-1' role='none'>
-          {options.map((option) => (
+          {options.map((option, index) => (
             <span
+              key={index}
               href='#'
               className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900'
               role='menuitem'
@@ -62,7 +59,7 @@ const Dropdown = ({ className, selected, options, onSelect, ...rest }) => {
             </span>
           ))}
         </div>
-        <div class='py-1' role='none'>
+        <div className='py-1' role='none'>
           <br />
         </div>
       </div>

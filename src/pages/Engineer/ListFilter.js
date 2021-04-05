@@ -37,11 +37,11 @@ const ListFilter = () => {
           <h1>Andela Technical Leadership Program (Rwanda)</h1>
           <h1>Engineer Profile</h1>
         </div>
-        <div className='flex flex-col md:flex-row w-full gap-x-10 gap-y-4 justify-center items-center'>
+        <div className='relative flex flex-col md:flex-row w-full gap-x-10 gap-y-4 justify-center items-center'>
           <div className='relative w-full h-full max-w-xx'>
             <input
               placeholder='Search'
-              className=' text-dark px-3 py-2  border border-gray-300 bg-white outline-none w-full h-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent'
+              className='flex text-dark px-3 py-2  border border-gray-300 bg-white outline-none w-full h-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent'
             />
             <span className='absolute top-0 right-0 mr-3 h-full flex items-center'>
               <SearchOutlined />
