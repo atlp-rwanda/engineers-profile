@@ -12,6 +12,7 @@
     "faker": "^5.5.1",
     "formik": "^2.2.6",
     "lodash": "^4.17.21",
+    "qs": "^6.10.1",
     "random-acme-logos": "^0.0.3",
     "randomcolor": "^0.6.2",
     "react": "^17.0.2",

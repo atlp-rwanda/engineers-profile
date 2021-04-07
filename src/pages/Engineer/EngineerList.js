@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import qs from 'qs';
 import ListFilter from './ListFilter';
 import ProfileCard from './ProfileCard';
 import { api } from '../../utils';
@@ -13,8 +14,11 @@ const EngineerList = () => {
   }, []);
 
   const fetchEngineers = async () => {
+    const query = qs.stringify({
+      _where: [{ graduated: true }],
+    });
     try {
-      const res = await api.get('/users');
+      const res = await api.get(`/users?${query}`);
       const { data } = res;
       setEngineers([...engineers, ...data]);
     } catch (err) {
@@ -25,7 +29,7 @@ const EngineerList = () => {
     <div className='w-full flex flex-col justify-center items-center'>
       <ListFilter />
       <div className='w-4/5 min-h-full mt-10 md:mt-20 flex justify-center '>
-        {[engineers].length ? (
+        {engineers.length ? (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-x-10 gap-y-14'>
             {engineers.map((data, index) => (
               <ProfileCard key={data.id} id={index} data={data} />

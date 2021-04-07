@@ -1,10 +1,12 @@
 import React from 'react';
-import randomColor from 'randomcolor';
 
 const { REACT_APP_BASE_URL: baseUrl } = process.env;
 
 const ProfileCard = ({ data }) => {
-  const fullName = `${data.first_name}  ${data.last_name}`;
+  const fullName =
+    data.first_name && data.last_name
+      ? `${data.first_name}  ${data.last_name}`
+      : '';
   const profilePhoto = data.profile_photo
     ? `${baseUrl}${data.profile_photo.url}`.trim()
     : '';
@@ -15,7 +17,6 @@ const ProfileCard = ({ data }) => {
   const companyLogo = data.company
     ? `${baseUrl}${data.company.logo.url}`.trim()
     : '';
-  const color = randomColor();
   return (
     <div className='relative  max-w-xx'>
       <div className='relative min-h-xx w-full bg-white shadow-md pb-2'>
@@ -65,10 +66,7 @@ const ProfileCard = ({ data }) => {
                 <span className='font-normal text-gray-500'>Duration:</span> 3
                 Month
               </p>
-              <div
-                className='h-10 w-10 flex justify-center items-center'
-                style={{ background: color }}
-              >
+              <div className='h-10 w-10 flex justify-center items-center'>
                 <img
                   className=' w-full h-full  cover bg-center'
                   src={companyLogo}
