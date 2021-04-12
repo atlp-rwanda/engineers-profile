@@ -5,12 +5,12 @@ const ProfileCard = ({ data }) => {
     data.first_name && data.last_name
       ? `${data.first_name}  ${data.last_name}`
       : '';
-  const profilePhoto = data.profile_photo.url ? data.profile_photo.url : '';
+  const profilePhoto = data.profile_photo?.url || '';
   const bio = data.bio ? data.bio : '';
   const email = data.email ? data.email : '';
   const mobile = data.mobile_no ? `+${data.mobile_no}` : '';
   const companyName = data.company ? data.company.name : '';
-  const companyLogo = data.company.logo.url ? data.company.logo.url : '';
+  const companyLogo = data.company.logo?.url || '';
   return (
     <div className='relative  max-w-xx'>
       <div className='relative min-h-xx w-full bg-white shadow-md pb-2'>
