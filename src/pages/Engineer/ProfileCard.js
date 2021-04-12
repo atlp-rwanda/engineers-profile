@@ -1,22 +1,16 @@
 import React from 'react';
 
-const { REACT_APP_BASE_URL: baseUrl } = process.env;
-
 const ProfileCard = ({ data }) => {
   const fullName =
     data.first_name && data.last_name
       ? `${data.first_name}  ${data.last_name}`
       : '';
-  const profilePhoto = data.profile_photo
-    ? `${baseUrl}${data.profile_photo.url}`.trim()
-    : '';
+  const profilePhoto = data.profile_photo ? data.profile_photo.url : '';
   const bio = data.bio ? data.bio : '';
   const email = data.email ? data.email : '';
   const mobile = data.mobile_no ? `+${data.mobile_no}` : '';
   const companyName = data.company ? data.company.name : '';
-  const companyLogo = data.company
-    ? `${baseUrl}${data.company.logo.url}`.trim()
-    : '';
+  const companyLogo = data.company ? data.company.logo.url : '';
   return (
     <div className='relative  max-w-xx'>
       <div className='relative min-h-xx w-full bg-white shadow-md pb-2'>
