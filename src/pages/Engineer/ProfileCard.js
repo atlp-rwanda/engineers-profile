@@ -10,7 +10,7 @@ const ProfileCard = ({ data }) => {
   const email = data?.email || '';
   const mobile = data?.mobile_no || '';
   const companyName = data?.company?.name || '';
-  const companyLogo = data?.company.logo?.url || '';
+  const companyLogo = data?.company?.logo?.url || '';
   return (
     <div className='relative  max-w-xx'>
       <div className='relative min-h-xx w-full bg-white shadow-md pb-2'>
